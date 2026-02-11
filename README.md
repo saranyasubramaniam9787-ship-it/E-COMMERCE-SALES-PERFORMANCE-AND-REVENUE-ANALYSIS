@@ -1,6 +1,5 @@
 # E-COMMERCE-SALES-PERFORMANCE-AND-REVENUE-ANALYSIS
-Purpose of the Project
-  The main objective of this project was to evaluate business performance and identify patterns in sales, profit, and customer demand using an E-Commerce Sales Dataset in Microsoft Excel. The project focused on transforming raw transactional data into meaningful insights to support data-driven decision-making. Key goals included analysing product-wise, region-wise, and customer-wise performance, tracking sales trends over time, and calculating important business KPIs such as Total Sales, Profit, Profit Margin, Cost per Unit, and Total Revenue.
+Purpose of the Project was to evaluate business performance and identify patterns in sales, profit, and customer demand using an E-Commerce Sales Dataset in Microsoft Excel. The project focused on transforming raw transactional data into meaningful insights to support data-driven decision-making. Key goals included analysing product-wise, region-wise, and customer-wise performance, tracking sales trends over time, and calculating important business KPIs such as Total Sales, Profit, Profit Margin, Cost per Unit, and Total Revenue.
 
 Results of the Project
 • Identified top-performing and low-performing products based on sales and profit.
