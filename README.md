@@ -10,15 +10,13 @@
 - Sales and Revenue: Trend analysis, profit/loss measurement, and discount impact assessment
 - Operational Insights: Payment preferences and store performance
 
+
 ## Installation Instructions
-
-- This project is built using Microsoft Excel.
-- No additional software installation is required beyond Microsoft Excel.
-
-## Prerequisites
-
-- Microsoft Excel (2016 or later recommended)
-- E-Commerce Sales Dataset (.xlsx or .csv files)
+- Install Microsoft Excel (2016 or later recommended)
+- Download or clone this repository
+- Open the Excel file containing the cleaned dataset and dashboard
+- Enable editing and formulas if prompted
+- Refresh pivot tables and charts to view updated results
 
 ## Data Sources
 
@@ -27,6 +25,20 @@
 - Store Table: Store_ID, Store_Name, Region, City, Store_Type
 - Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
 
+## Code Structure
+The project is organized within an Excel Workbook structure, utilizing formulas and data transformation logic rather than traditional scripting. The logic flow is as follows:
+/README.md
+/data
+    ├── Customer_Raw.xlsx
+    ├── Product_Raw.xlsx
+    ├── Store_Raw.xlsx
+    └── Sales_Raw.xlsx
+/src (or /sheets)
+    ├── 1_Data_Cleaning       # Standardization of IDs, Names, Dates
+    ├── 2_Data_Transformation # Imputation of missing values, Calculated Columns
+    ├── 3_Analysis            # Pivot Tables, Statistical Summaries
+    └── 4_Dashboard           # Visualizations and Key Metrics
+    
 ## Key Transformation Logic
 ### Data Cleaning
 
