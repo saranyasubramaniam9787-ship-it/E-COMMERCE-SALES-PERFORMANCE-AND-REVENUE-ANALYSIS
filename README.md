@@ -25,20 +25,43 @@
 - Store Table: Store_ID, Store_Name, Region, City, Store_Type
 - Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
 
-# Code Structure
-The project is organized within an Excel Workbook structure, utilizing formulas and data transformation logic rather than traditional scripting. The logic flow is as follows:
-/README.md
-/data
-   - ├── Customer_Raw.xlsx
-   - ├── Product_Raw.xlsx
-   - ├── Store_Raw.xlsx
-   - └── Sales_Raw.xlsx
-/src (or /sheets)
-   - ├── 1_Data_Cleaning       # Standardization of IDs, Names, Dates
-   - ├── 2_Data_Transformation # Imputation of missing values, Calculated Columns
-   - ├── 3_Analysis            # Pivot Tables, Statistical Summaries
-   - └── 4_Dashboard           # Visualizations and Key Metrics
-    
+## Code Structure
+### Data Cleaning & Standardization
+
+-- Removed extra spaces using CLEAN() and TRIM()
+-- Standardized customer names, product names, and category values
+-- Corrected inconsistent ID formats
+-- Standardized date formats
+
+### Missing Value Handling
+
+-- Cost: null values replaced with category-wise average
+-- Stock: null values replaced with category-wise average
+-- Quantity: null values replaced with category-wise average
+-- Discount: null values replaced with category-wise average
+
+### Calculated Fields
+
+-- Revenue = Quantity × Unit_Price
+-- Total Amount = Revenue – (Revenue × Discount)
+-- Profit = Total Amount – (Product Cost × Quantity)
+-- Profit Margin % = (Profit / Revenue) × 100
+
+### Data Integration
+
+-- Product Cost merged into Sales table using VLOOKUP()
+-- Store Region merged into Sales table using VLOOKUP()
+
+### Pivot Tables and Charts Used For
+
+-- Category-wise performance analysis
+-- Region-wise sales and profit analysis
+-- Customer segment and loyalty-level analysis
+-- Monthly and yearly trend analysis
+-- Discount impact analysis
+-- Forecast and trend visualization
+
+
 ## Key Transformation Logic
 ### Data Cleaning
 
