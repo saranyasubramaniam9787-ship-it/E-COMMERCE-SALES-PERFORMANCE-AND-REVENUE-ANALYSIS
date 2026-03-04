@@ -25,19 +25,19 @@
 - Store Table: Store_ID, Store_Name, Region, City, Store_Type
 - Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
 
-## Code Structure
+# Code Structure
 The project is organized within an Excel Workbook structure, utilizing formulas and data transformation logic rather than traditional scripting. The logic flow is as follows:
 /README.md
 /data
-    ├── Customer_Raw.xlsx
-    ├── Product_Raw.xlsx
-    ├── Store_Raw.xlsx
-    └── Sales_Raw.xlsx
+   - ├── Customer_Raw.xlsx
+   - ├── Product_Raw.xlsx
+   - ├── Store_Raw.xlsx
+   - └── Sales_Raw.xlsx
 /src (or /sheets)
-    ├── 1_Data_Cleaning       # Standardization of IDs, Names, Dates
-    ├── 2_Data_Transformation # Imputation of missing values, Calculated Columns
-    ├── 3_Analysis            # Pivot Tables, Statistical Summaries
-    └── 4_Dashboard           # Visualizations and Key Metrics
+   - ├── 1_Data_Cleaning       # Standardization of IDs, Names, Dates
+   - ├── 2_Data_Transformation # Imputation of missing values, Calculated Columns
+   - ├── 3_Analysis            # Pivot Tables, Statistical Summaries
+   - └── 4_Dashboard           # Visualizations and Key Metrics
     
 ## Key Transformation Logic
 ### Data Cleaning
