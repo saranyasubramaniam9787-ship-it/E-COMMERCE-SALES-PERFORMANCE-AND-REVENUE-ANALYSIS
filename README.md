@@ -1,9 +1,7 @@
 E-COMMERCE SALES PERFORMANCE AND REVENUE ANALYSIS
 Brief Description of the Project
 
--- The objective of this project is to transform raw transactional and master data into meaningful business insights for strategic decision-making.
--- The analysis uses customer demographics, product cost and pricing, discount structures, revenue, total sales amount, and profit or loss.
--- This study evaluates business performance and identifies growth and optimization opportunities.
+  The objective of this project is to transform raw transactional and master data into meaningful business insights for strategic decision-making.The analysis uses customer demographics, product cost and pricing, discount structures, revenue, total sales amount, and profit or loss.This study evaluates business performance and identifies growth and optimization opportunities.
 
 Project Focus Areas
 
