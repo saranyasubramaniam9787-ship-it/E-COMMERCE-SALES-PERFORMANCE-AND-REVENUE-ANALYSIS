@@ -28,38 +28,38 @@
 ## Code Structure
 ### Data Cleaning & Standardization
 
--- Removed extra spaces using CLEAN() and TRIM()
--- Standardized customer names, product names, and category values
--- Corrected inconsistent ID formats
--- Standardized date formats
+- Removed extra spaces using CLEAN() and TRIM()
+- Standardized customer names, product names, and category values
+- Corrected inconsistent ID formats
+- Standardized date formats
 
 ### Missing Value Handling
 
--- Cost: null values replaced with category-wise average
--- Stock: null values replaced with category-wise average
--- Quantity: null values replaced with category-wise average
--- Discount: null values replaced with category-wise average
+- Cost: null values replaced with category-wise average
+- Stock: null values replaced with category-wise average
+- Quantity: null values replaced with category-wise average
+- Discount: null values replaced with category-wise average
 
 ### Calculated Fields
 
--- Revenue = Quantity × Unit_Price
--- Total Amount = Revenue – (Revenue × Discount)
--- Profit = Total Amount – (Product Cost × Quantity)
--- Profit Margin % = (Profit / Revenue) × 100
+- Revenue = Quantity × Unit_Price
+- Total Amount = Revenue – (Revenue × Discount)
+- Profit = Total Amount – (Product Cost × Quantity)
+- Profit Margin % = (Profit / Revenue) × 100
 
 ### Data Integration
 
--- Product Cost merged into Sales table using VLOOKUP()
--- Store Region merged into Sales table using VLOOKUP()
+- Product Cost merged into Sales table using VLOOKUP()
+- Store Region merged into Sales table using VLOOKUP()
 
 ### Pivot Tables and Charts Used For
 
--- Category-wise performance analysis
--- Region-wise sales and profit analysis
--- Customer segment and loyalty-level analysis
--- Monthly and yearly trend analysis
--- Discount impact analysis
--- Forecast and trend visualization
+- Category-wise performance analysis
+- Region-wise sales and profit analysis
+- Customer segment and loyalty-level analysis
+- Monthly and yearly trend analysis
+- Discount impact analysis
+- Forecast and trend visualization
 
 
 ## Key Transformation Logic
