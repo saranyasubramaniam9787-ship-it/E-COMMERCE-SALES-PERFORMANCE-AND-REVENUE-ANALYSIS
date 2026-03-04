@@ -1,116 +1,116 @@
-E-COMMERCE SALES PERFORMANCE AND REVENUE ANALYSIS
-Brief Description of the Project
+# E-COMMERCE SALES PERFORMANCE AND REVENUE ANALYSIS
+## Brief Description of the Project
 
   The objective of this project is to transform raw transactional and master data into meaningful business insights for strategic decision-making.The analysis uses customer demographics, product cost and pricing, discount structures, revenue, total sales amount, and profit or loss.This study evaluates business performance and identifies growth and optimization opportunities.
 
-Project Focus Areas
+## Project Focus Areas
 
--- Customer Analysis: Loyalty levels and high-value customer identification
--- Product Performance: Category performance, inventory status, and regional trends
--- Sales and Revenue: Trend analysis, profit/loss measurement, and discount impact assessment
--- Operational Insights: Payment preferences and store performance
+- Customer Analysis: Loyalty levels and high-value customer identification
+- Product Performance: Category performance, inventory status, and regional trends
+- Sales and Revenue: Trend analysis, profit/loss measurement, and discount impact assessment
+- Operational Insights: Payment preferences and store performance
 
-Installation Instructions
+## Installation Instructions
 
--- This project is built using Microsoft Excel.
--- No additional software installation is required beyond Microsoft Excel.
+- This project is built using Microsoft Excel.
+- No additional software installation is required beyond Microsoft Excel.
 
-Prerequisites
+## Prerequisites
 
--- Microsoft Excel (2016 or later recommended)
--- E-Commerce Sales Dataset (.xlsx or .csv files)
+- Microsoft Excel (2016 or later recommended)
+- E-Commerce Sales Dataset (.xlsx or .csv files)
 
-Data Sources
+## Data Sources
 
--- Customer Table: Customer_ID, Name, Age, Gender, City, State, Loyalty_Level
--- Product Table: Product_ID, Product_Name, Category, Sub_Category, Brand, Cost, Stock
--- Store Table: Store_ID, Store_Name, Region, City, Store_Type
--- Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
+- Customer Table: Customer_ID, Name, Age, Gender, City, State, Loyalty_Level
+- Product Table: Product_ID, Product_Name, Category, Sub_Category, Brand, Cost, Stock
+- Store Table: Store_ID, Store_Name, Region, City, Store_Type
+- Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
 
-Key Transformation Logic
-Data Cleaning
+## Key Transformation Logic
+### Data Cleaning
 
--- Used CLEAN(), TRIM(), and PROPER() to standardize IDs, Names, and Categories
+- Used CLEAN(), TRIM(), and PROPER() to standardize IDs, Names, and Categories
 
-Imputation
+### Imputation
 
--- Missing values in Cost, Stock, Quantity, and Discount filled using category-level averages (AVERAGEIF)
+- Missing values in Cost, Stock, Quantity, and Discount filled using category-level averages (AVERAGEIF)
 
-Calculations
+### Calculations
 
--- Revenue = Quantity * Unit_Price
--- Total Amount = Revenue - (Revenue * Discount)
--- Profit = Total Amount - (Product Cost * Quantity)
+- Revenue = Quantity * Unit_Price
+- Total Amount = Revenue - (Revenue * Discount)
+- Profit = Total Amount - (Product Cost * Quantity)
 
-Lookup
+### Lookup
 
--- Used VLOOKUP to merge Product Cost and Store Region into the Sales table
+- Used VLOOKUP to merge Product Cost and Store Region into the Sales table
 
-Results and Evaluation
+### Results and Evaluation
 
--- Total observations processed: 2,000
+- Total observations processed: 2,000
 
-Statistical Summary
+### Statistical Summary
 
--- Total Revenue: ₹10,27,977.36
--- Mean Revenue per Transaction: ₹513.99
--- Revenue Range: ₹20.09 (Min) to ₹999.89 (Max)
--- Distribution: Symmetrical (Skewness = -0.04)
+- Total Revenue: ₹10,27,977.36
+- Mean Revenue per Transaction: ₹513.99
+- Revenue Range: ₹20.09 (Min) to ₹999.89 (Max)
+- Distribution: Symmetrical (Skewness = -0.04)
 
-Key Insights
-Regional Performance
+## Key Insights
+### Regional Performance
 
--- North region records the highest sales volume
--- East region has the lowest sales and needs focused strategy
+- North region records the highest sales volume
+- East region has the lowest sales and needs focused strategy
 
-Product Categories
+### Product Categories
 
--- Computers are the highest-selling products
--- Appliances have high stock but incur losses (Unit Price < Product Cost)
--- Accessories have high inventory but low sales quantity
+- Computers are the highest-selling products
+- Appliances have high stock but incur losses (Unit Price < Product Cost)
+- Accessories have high inventory but low sales quantity
 
-Customer Loyalty
+### Customer Loyalty
 
--- Higher-tier loyalty groups contribute a major share of revenue
+- Higher-tier loyalty groups contribute a major share of revenue
 
-Discount Impact
+### Discount Impact
 
--- Excessive discounting on low-margin products reduces profitability
+- Excessive discounting on low-margin products reduces profitability
 
-Forecast
+## Forecast
 
 -- Time-series forecasting indicates a gradual and consistent increase in revenue
 
-Future Work
+## Future Work
 
--- Pricing Optimization: Ensure Unit Price exceeds Product Cost in Appliances
--- Inventory Management: Align stock levels with demand in Accessories
--- Regional Strategy: Focus marketing efforts in the East region
--- Discount Strategy: Limit discounts on low-margin items and clear high-stock inventory
--- Demand Planning: Use forecast trends to stabilize monthly earnings
+- Pricing Optimization: Ensure Unit Price exceeds Product Cost in Appliances
+- Inventory Management: Align stock levels with demand in Accessories
+- Regional Strategy: Focus marketing efforts in the East region
+- Discount Strategy: Limit discounts on low-margin items and clear high-stock inventory
+- Demand Planning: Use forecast trends to stabilize monthly earnings
 
-Results of the Project
+## Results of the Project
 
--- Identified top and low-performing products based on sales and profit
--- Analyzed region-wise and time-based sales trends
--- Evaluated customer segments based on age and loyalty level
--- Calculated Total Sales, Total Revenue, Profit, and Profit Margin
--- Built Pivot Tables and Pivot Charts
--- Designed dashboards for decision-making
+- Identified top and low-performing products based on sales and profit
+- Analyzed region-wise and time-based sales trends
+- Evaluated customer segments based on age and loyalty level
+- Calculated Total Sales, Total Revenue, Profit, and Profit Margin
+- Built Pivot Tables and Pivot Charts
+- Designed dashboards for decision-making
 
-Challenges Faced
+## Challenges Faced
 
--- Data cleaning due to missing values and inconsistent formats
--- Formula validation for profit and margin
--- Designing Pivot Tables with multiple filters
--- Ensuring KPI accuracy with large datasets
--- Creating simple and clear visual presentations
+- Data cleaning due to missing values and inconsistent formats
+- Formula validation for profit and margin
+- Designing Pivot Tables with multiple filters
+- Ensuring KPI accuracy with large datasets
+- Creating simple and clear visual presentations
 
-Acknowledgments / References
+## Acknowledgments / References
 
--- Dataset provided for E-Commerce Sales Performance and Revenue Analysis
--- Analysis based on standard Excel data cleaning and statistical practices
+- Dataset provided for E-Commerce Sales Performance and Revenue Analysis
+- Analysis based on standard Excel data cleaning and statistical practices
 
-License
+## License
 
--- This project is open-source and available under the MIT License
+- This project is open-source and available under the MIT License
