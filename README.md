@@ -38,6 +38,7 @@ Dataset: E-Commerce Sales Dataset
 - **Tables:** Customer, Product, Store, Sales
 - **File Format:** Excel (.xlsx)
 - **Dataset Size:** ~2 MB
+  **Source**-The dataset used in this project was provided as part of an academic exercise for learning data analysis.
 
 **Description**
 
