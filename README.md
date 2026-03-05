@@ -30,10 +30,14 @@ The analysis evaluates customer demographics, product pricing, discount structur
 - Evaluate payment type preferences
 - Forecast future revenue for strategic planning
 
-
 **Data Source**
 
-**Dataset:** E-Commerce Sales Dataset
+Dataset: E-Commerce Sales Dataset
+
+- **Records:** 2,000+ sales transactions
+- **Tables:** Customer, Product, Store, Sales
+- **File Format:** Excel (.xlsx)
+- **Dataset Size:** ~2 MB
 
 **Description**
 
@@ -45,11 +49,6 @@ The dataset represents a comprehensive e-commerce sales environment consisting o
 - Sales
 
 These tables capture customer demographics, product details, store information, and transactional sales records.
-
-**Size**
-
-- 2,000+ sales transactions
-
 
 **Customer Table**
 
@@ -102,11 +101,7 @@ These tables capture customer demographics, product details, store information, 
 **Tools & Technologies**
 
 - Excel – Data Cleaning & Analysis
-- Python – Pandas, NumPy, Matplotlib, Seaborn
-- Power BI – Dashboard Visualization
-- Jupyter Notebook – Documentation & Analysis
 - Excel Data Analysis ToolPak – Statistical Analysis
-
 
 **Data Cleaning & Preparation**
 
@@ -310,8 +305,6 @@ Total Profit: =SUMIF(M2:M2001,">0")
 Total Loss: =SUMIF(M2:M2001,"<0")
 Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
 ```
-
-
 **Dashboard Preview**
 
 **Category-wise Revenue & Profit**
@@ -339,27 +332,7 @@ Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
 
 **Prerequisites**
 
-- Microsoft Excel (2016+)
-- Python 3.8+
-- Power BI Desktop (optional)
-
-
-**Dependencies (Python)**
-
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scikit-learn
-- openpyxl
-
-
-**Installation**
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn openpyxl
-```
-
+- Microsoft Excel (2016 or later)
 
 **Steps to Run**
 
@@ -372,40 +345,22 @@ cd ecommerce-sales-analysis
 
 **Data Files Setup**
 
-- Place **E-Commerce_Sales_Dataset.xlsx** in the `/data` folder
-- Ensure all worksheets remain intact
-
+- Place the **E-Commerce_Sales_Dataset.xlsx** file in the `/data` folder.
+- Ensure all worksheets (Customer, Product, Store, Sales) are available.
 
 **Excel Analysis**
 
 - Open **Ecommerce_Analysis_Workbook.xlsx**
 - Enable macros if prompted
-- Explore sheets: Raw_Data, Cleaned_Data, Analysis, Visualizations
+- Navigate through the following sheets:
+  - Raw Data
+  - Cleaned Data
+  - Analysis
+  - Visualizations
 
+**Output**
 
-**Python Analysis (Optional)**
-
-```bash
-jupyter notebook
-```
-
-- Open **ecommerce_analysis.ipynb**
-- Run all cells
-
-
-**Power BI Dashboard (Optional)**
-
-- Open **Ecommerce_Sales_Dashboard.pbix**
-- Click **Refresh**
-- Use filters for Region, Category, Date Range, Loyalty Level
-
-
-**Output Files**
-
-- `/output/cleaned_dataset.csv`
-- `/output/statistical_summary.xlsx`
-- `/output/visualizations/`
-- `/output/forecast_results.csv`
-
-
-
+- Cleaned dataset in `/output`
+- Statistical summary reports
+- Excel charts and visual analysis
+- Dashboard insights
