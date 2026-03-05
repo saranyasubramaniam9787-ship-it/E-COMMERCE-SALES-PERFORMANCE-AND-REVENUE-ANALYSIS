@@ -1,151 +1,410 @@
-# E-COMMERCE SALES PERFORMANCE AND REVENUE ANALYSIS
-## Brief Description of the Project
+**E-Commerce Sales Performance and Revenue Analysis**
 
-  The objective of this project is to transform raw transactional and master data into meaningful business insights for strategic decision-making.The analysis uses customer demographics, product cost and pricing, discount structures, revenue, total sales amount, and profit or loss.This study evaluates business performance and identifies growth and optimization opportunities.
+📖 **Table of Contents**
 
-## Project Focus Areas
+- Project Overview
+- Data Source
+- Tools & Technologies
+- Data Cleaning & Preparation
+- Exploratory Data Analysis (EDA)
+- Key Insights
+- Recommendations
+- How to Use
 
-- Customer Analysis: Loyalty levels and high-value customer identification
-- Product Performance: Category performance, inventory status, and regional trends
-- Sales and Revenue: Trend analysis, profit/loss measurement, and discount impact assessment
-- Operational Insights: Payment preferences and store performance
+
+**Project Overview**
+
+This project transforms raw transactional and master data into meaningful business insights to support strategic decision-making for an e-commerce business.
+
+The analysis evaluates customer demographics, product pricing, discount structures, revenue, and profitability to assess overall business performance and identify opportunities for growth and optimization.
+
+**Key Objectives**
+
+- Analyze customer loyalty levels and their impact on revenue
+- Identify high-value customers based on purchasing behavior
+- Evaluate product performance by category and inventory status
+- Conduct regional performance analysis
+- Perform sales trend analysis based on order date and quantity sold
+- Measure revenue and profit/loss by product category
+- Assess the impact of discounts on profitability
+- Evaluate payment type preferences
+- Forecast future revenue for strategic planning
 
 
-## Installation Instructions
-- Install Microsoft Excel (2016 or later recommended)
-- Download or clone this repository
-- Open the Excel file containing the cleaned dataset and dashboard
-- Enable editing and formulas if prompted
-- Refresh pivot tables and charts to view updated results
+**Data Source**
 
-## Data Sources
+**Dataset:** E-Commerce Sales Dataset
 
-- Customer Table: Customer_ID, Name, Age, Gender, City, State, Loyalty_Level
-- Product Table: Product_ID, Product_Name, Category, Sub_Category, Brand, Cost, Stock
-- Store Table: Store_ID, Store_Name, Region, City, Store_Type
-- Sales Table: Sales_ID, Order_Date, Customer_ID, Product_ID, Store_ID, Quantity, Unit_Price, Discount, Revenue, Payment_Type
+**Description**
 
-## Code Structure
-### Data Cleaning & Standardization
+The dataset represents a comprehensive e-commerce sales environment consisting of four relational tables:
 
-- Removed extra spaces using CLEAN() and TRIM()
-- Standardized customer names, product names, and category values
-- Corrected inconsistent ID formats
+- Customer
+- Product
+- Store
+- Sales
+
+These tables capture customer demographics, product details, store information, and transactional sales records.
+
+**Size**
+
+- 2,000+ sales transactions
+
+
+**Customer Table**
+
+- Customer_ID – Unique identifier for each customer
+- Name – Customer full name
+- Age – Age of the customer
+- Gender – Gender of the customer
+- City – Customer city
+- State – Customer state
+- Loyalty_Level – Loyalty tier (Gold, Silver, Bronze, Platinum)
+
+
+**Product Table**
+
+- Product_ID – Unique product identifier
+- Product_Name – Product name
+- Category – Main product category
+- Sub_Category – Detailed product classification
+- Brand – Brand name
+- Cost – Product cost price
+- Stock – Inventory quantity
+
+
+**Store Table**
+
+- Store_ID – Unique store identifier
+- Store_Name – Store name
+- Region – Store geographic region
+- City – Store city
+- Store_Type – Type of store (flagship, outlet)
+
+
+**Sales Table**
+
+- Sales_ID – Unique sales transaction ID
+- Order_Date – Date of order
+- Customer_ID – Customer identifier
+- Product_ID – Product identifier
+- Store_ID – Store identifier
+- Region – Sales region
+- Quantity – Units sold
+- Product_Cost – Cost per unit
+- Unit_Price – Price per unit
+- Discount – Discount applied
+- Revenue – Total sales revenue
+- Total_Amount – Final amount after discount
+- Payment_Type – Payment method (Cash, Card, Online)
+
+
+**Tools & Technologies**
+
+- Excel – Data Cleaning & Analysis
+- Python – Pandas, NumPy, Matplotlib, Seaborn
+- Power BI – Dashboard Visualization
+- Jupyter Notebook – Documentation & Analysis
+- Excel Data Analysis ToolPak – Statistical Analysis
+
+
+**Data Cleaning & Preparation**
+
+**Data Import**
+
+- Imported dataset using Excel **Get Data → From File → Excel Workbook**
+- Loaded all worksheets: Customer, Product, Store, Sales
+
+**Customer Table Cleaning**
+
+- Standardized **Customer_ID**
+- Removed duplicates
+- Cleaned hidden characters using CLEAN and TRIM
+- Standardized customer names
+- Created **Age Group segmentation**
+
+Example formula:
+
+```excel
+=IFS([@Age]>=50,"Senior",[@Age]>=30,"Adult",[@Age]>=18,"Young")
+```
+
+**Loyalty Level Imputation**
+
+```excel
+=IF(ISBLANK([@[Loyalty_Level]]),
+IF(COUNTIF(Sales_Fact[Customer_ID],[@[Customer_ID]])>5,"Platinum",
+IF(COUNTIF(Sales_Fact[Customer_ID],[@[Customer_ID]])>=3,"Gold",
+IF(COUNTIF(Sales_Fact[Customer_ID],[@[Customer_ID]])>=2,"Silver",""))),
+[@[Loyalty_Level]])
+```
+
+**Product Table Cleaning**
+
+- Standardized product IDs
+- Cleaned category fields
+- Standardized brand capitalization
+- Filled missing product costs using sub-category averages
+
+```excel
+=IF(ISBLANK([@Cost]),AVERAGEIF([Sub_Category],[@[Sub_Category]],[Cost]),[@Cost])
+```
+
+**Store Table Cleaning**
+
+- Cleaned Store_ID, Store_Name, Region, City
+- Standardized text formatting using PROPER
+
+
+**Sales Table Cleaning**
+
+Quantity Imputation
+
+```excel
+=IF(ISBLANK([@Quantity]),AVERAGE([Quantity]),[@Quantity])
+```
+
+Revenue Calculation
+
+```excel
+=[@Quantity]*[@[Unit_Price]]
+```
+
+Total Amount
+
+```excel
+=[@Revenue]-([@Revenue]*[@Discount])
+```
+
+Profit Calculation
+
+```excel
+=[@[Total Amount]]-([@[Product_cost]]*[@Quantity])
+```
+
+Additional cleaning steps
+
+- Integrated region data using VLOOKUP
 - Standardized date formats
-
-### Missing Value Handling
-
-- Cost: null values replaced with category-wise average
-- Stock: null values replaced with category-wise average
-- Quantity: null values replaced with category-wise average
-- Discount: null values replaced with category-wise average
-
-### Calculated Fields
-
-- Revenue = Quantity × Unit_Price
-- Total Amount = Revenue – (Revenue × Discount)
-- Profit = Total Amount – (Product Cost × Quantity)
-- Profit Margin % = (Profit / Revenue) × 100
-
-### Data Integration
-
-- Product Cost merged into Sales table using VLOOKUP()
-- Store Region merged into Sales table using VLOOKUP()
-
-### Pivot Tables and Charts Used For
-
-- Category-wise performance analysis
-- Region-wise sales and profit analysis
-- Customer segment and loyalty-level analysis
-- Monthly and yearly trend analysis
-- Discount impact analysis
-- Forecast and trend visualization
+- Ensured proper data types for analysis
 
 
-## Key Transformation Logic
-### Data Cleaning
+**Exploratory Data Analysis (EDA)**
 
-- Used CLEAN(), TRIM(), and PROPER() to standardize IDs, Names, and Categories
+**Revenue Statistics**
 
-### Imputation
-
-- Missing values in Cost, Stock, Quantity, and Discount filled using category-level averages (AVERAGEIF)
-
-### Calculations
-
-- Revenue = Quantity * Unit_Price
-- Total Amount = Revenue - (Revenue * Discount)
-- Profit = Total Amount - (Product Cost * Quantity)
-
-### Lookup
-
-- Used VLOOKUP to merge Product Cost and Store Region into the Sales table
-
-### Results and Evaluation
-
-- Total observations processed: 2,000
-
-### Statistical Summary
-
+- Mean: ₹513.99
+- Median: ₹522.43
+- Mode: ₹516.59
+- Standard Deviation: ₹282.09
+- Minimum: ₹20.09
+- Maximum: ₹999.89
 - Total Revenue: ₹10,27,977.36
-- Mean Revenue per Transaction: ₹513.99
-- Revenue Range: ₹20.09 (Min) to ₹999.89 (Max)
-- Distribution: Symmetrical (Skewness = -0.04)
+- Transactions: 2,000
+- Skewness: -0.04
+- Kurtosis: -1.19
 
-## Key Insights
-### Regional Performance
 
-- North region records the highest sales volume
-- East region has the lowest sales and needs focused strategy
+**Key Analysis Questions**
 
-### Product Categories
+**Customer Analysis**
 
-- Computers are the highest-selling products
-- Appliances have high stock but incur losses (Unit Price < Product Cost)
-- Accessories have high inventory but low sales quantity
+- Impact of loyalty levels on revenue
+- High-value customer identification
+- Demographic purchasing behavior
 
-### Customer Loyalty
+**Product Performance**
 
-- Higher-tier loyalty groups contribute a major share of revenue
+- Revenue and profit by category
+- Inventory vs sales performance
+- Overstocked and underperforming products
 
-### Discount Impact
+**Regional Analysis**
 
-- Excessive discounting on low-margin products reduces profitability
+- Regional sales performance
+- Store type impact on revenue
+- Expansion opportunities
 
-## Forecast
+**Profitability Analysis**
 
--- Time-series forecasting indicates a gradual and consistent increase in revenue
+- Discount impact on margins
+- Loss-making products
 
-## Future Work
+**Trend Analysis**
 
-- Pricing Optimization: Ensure Unit Price exceeds Product Cost in Appliances
-- Inventory Management: Align stock levels with demand in Accessories
-- Regional Strategy: Focus marketing efforts in the East region
-- Discount Strategy: Limit discounts on low-margin items and clear high-stock inventory
-- Demand Planning: Use forecast trends to stabilize monthly earnings
+- Sales trends from 2023–2025
+- Seasonal demand patterns
+- 6-month revenue forecast
 
-## Results of the Project
 
-- Identified top and low-performing products based on sales and profit
-- Analyzed region-wise and time-based sales trends
-- Evaluated customer segments based on age and loyalty level
-- Calculated Total Sales, Total Revenue, Profit, and Profit Margin
-- Built Pivot Tables and Pivot Charts
-- Designed dashboards for decision-making
+**Visualization Highlights**
 
-## Challenges Faced
+- Category-wise revenue vs profit charts
+- Product sales vs inventory charts
+- Regional sales distribution
+- Discount vs profit analysis
+- Time series forecast charts
 
-- Data cleaning due to missing values and inconsistent formats
-- Formula validation for profit and margin
-- Designing Pivot Tables with multiple filters
-- Ensuring KPI accuracy with large datasets
-- Creating simple and clear visual presentations
 
-## Acknowledgments / References
+**Key Insights**
 
-- Dataset provided for E-Commerce Sales Performance and Revenue Analysis
-- Analysis based on standard Excel data cleaning and statistical practices
+- Revenue distribution is balanced with minimal skewness.
+- Computers and Electronics generate the highest revenue.
+- Appliances category shows losses due to pricing below cost.
+- North region dominates sales performance.
+- East region significantly underperforms.
+- Aggressive discounting negatively impacts profitability.
+- Accessories category shows overstocking.
+- Platinum and Gold customers generate the highest revenue.
+- Revenue forecast shows moderate growth.
 
-## License
 
-- This project is open-source and available under the MIT License
+**Recommendations**
+
+**Pricing Optimization**
+
+- Ensure unit price exceeds product cost
+- Implement dynamic pricing strategies
+- Control excessive discounting
+
+**Inventory Management**
+
+- Reduce overstock in Accessories
+- Implement demand-driven restocking
+- Monitor stock turnover ratios
+
+**Regional Expansion**
+
+- Target marketing for East region
+- Replicate North region strategies
+- Optimize store formats
+
+**Customer Retention**
+
+- Strengthen loyalty programs
+- Create personalized promotions
+- Run win-back campaigns
+
+**Discount Optimization**
+
+- Apply targeted discounts
+- Avoid blanket discount strategies
+- Monitor profit impact of promotions
+
+**Payment Optimization**
+
+- Improve preferred payment experiences
+- Promote cost-effective payment methods
+
+**Forecast Planning**
+
+- Use forecasts for procurement planning
+- Prepare for high-demand seasons
+
+
+**How to Use**
+
+**Prerequisites**
+
+- Microsoft Excel (2016+)
+- Python 3.8+
+- Power BI Desktop (optional)
+
+
+**Dependencies (Python)**
+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- openpyxl
+
+
+**Installation**
+
+```bash
+pip install pandas numpy matplotlib seaborn scikit-learn openpyxl
+```
+
+
+**Steps to Run**
+
+**Clone the Repository**
+
+```bash
+git clone <repository-url>
+cd ecommerce-sales-analysis
+```
+
+**Data Files Setup**
+
+- Place **E-Commerce_Sales_Dataset.xlsx** in the `/data` folder
+- Ensure all worksheets remain intact
+
+
+**Excel Analysis**
+
+- Open **Ecommerce_Analysis_Workbook.xlsx**
+- Enable macros if prompted
+- Explore sheets: Raw_Data, Cleaned_Data, Analysis, Visualizations
+
+
+**Python Analysis (Optional)**
+
+```bash
+jupyter notebook
+```
+
+- Open **ecommerce_analysis.ipynb**
+- Run all cells
+
+
+**Power BI Dashboard (Optional)**
+
+- Open **Ecommerce_Sales_Dashboard.pbix**
+- Click **Refresh**
+- Use filters for Region, Category, Date Range, Loyalty Level
+
+
+**Output Files**
+
+- `/output/cleaned_dataset.csv`
+- `/output/statistical_summary.xlsx`
+- `/output/visualizations/`
+- `/output/forecast_results.csv`
+
+
+**Key Metrics Calculated**
+
+```excel
+Total Sold Quantity: =SUM(G2:G2001)
+Total Revenue: =SUM(K2:K2001)
+Total Profit: =SUMIF(M2:M2001,">0")
+Total Loss: =SUMIF(M2:M2001,"<0")
+Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
+```
+
+
+**Dashboard Preview**
+
+**Category-wise Revenue & Profit**
+
+- Computers and Electronics lead in revenue
+- Appliances show negative profit
+
+**Regional Performance**
+
+- North region: Highest sales
+- East region: Lowest performance
+
+**Discount vs Profit Analysis**
+
+- Higher discounts reduce profit margins
+- Strategic discounting recommended
+
+**Revenue Forecast (Next 6 Months)**
+
+- Gradual growth expected
+- Seasonal fluctuations present
+- December projected as peak revenue month
