@@ -316,7 +316,7 @@ Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
 **Clone the Repository**
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/saranyasubramaniam9787-ship-it/E-COMMERCE-SALES-PERFORMANCE-AND-REVENUE-ANALYSIS.git
 cd ecommerce-sales-analysis
 ```
 
