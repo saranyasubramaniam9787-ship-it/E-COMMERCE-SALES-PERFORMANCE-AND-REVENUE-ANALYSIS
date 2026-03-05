@@ -300,7 +300,40 @@ Additional cleaning steps
 
 - Use forecasts for procurement planning
 - Prepare for high-demand seasons
+  
+**Key Metrics Calculated**
 
+```excel
+Total Sold Quantity: =SUM(G2:G2001)
+Total Revenue: =SUM(K2:K2001)
+Total Profit: =SUMIF(M2:M2001,">0")
+Total Loss: =SUMIF(M2:M2001,"<0")
+Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
+```
+
+
+**Dashboard Preview**
+
+**Category-wise Revenue & Profit**
+
+- Computers and Electronics lead in revenue
+- Appliances show negative profit
+
+**Regional Performance**
+
+- North region: Highest sales
+- East region: Lowest performance
+
+**Discount vs Profit Analysis**
+
+- Higher discounts reduce profit margins
+- Strategic discounting recommended
+
+**Revenue Forecast (Next 6 Months)**
+
+- Gradual growth expected
+- Seasonal fluctuations present
+- December projected as peak revenue month
 
 **How to Use**
 
@@ -375,36 +408,4 @@ jupyter notebook
 - `/output/forecast_results.csv`
 
 
-**Key Metrics Calculated**
 
-```excel
-Total Sold Quantity: =SUM(G2:G2001)
-Total Revenue: =SUM(K2:K2001)
-Total Profit: =SUMIF(M2:M2001,">0")
-Total Loss: =SUMIF(M2:M2001,"<0")
-Profit Margin %: =([@[Profit/Loss]]/[@Revenue])*100
-```
-
-
-**Dashboard Preview**
-
-**Category-wise Revenue & Profit**
-
-- Computers and Electronics lead in revenue
-- Appliances show negative profit
-
-**Regional Performance**
-
-- North region: Highest sales
-- East region: Lowest performance
-
-**Discount vs Profit Analysis**
-
-- Higher discounts reduce profit margins
-- Strategic discounting recommended
-
-**Revenue Forecast (Next 6 Months)**
-
-- Gradual growth expected
-- Seasonal fluctuations present
-- December projected as peak revenue month
