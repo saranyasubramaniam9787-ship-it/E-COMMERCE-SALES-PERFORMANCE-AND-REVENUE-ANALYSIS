@@ -1,5 +1,7 @@
-**E-Commerce Sales Performance and Revenue Analysis**
+# E-Commerce Sales Performance and Revenue Analysis
+
 This project transforms raw transactional and master data into meaningful business insights for better decision-making. It analyzes customer demographics, sales, discounts, revenue, and profit to evaluate performance and identify growth opportunities.
+
 ## 📖 Table of Contents
 - [Project Overview](#-project-overview)
 - [Data Source](#-data-source)
